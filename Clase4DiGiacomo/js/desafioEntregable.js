@@ -24,10 +24,6 @@ function sumadorNotas(cantidad) {
     return acumulador;
 }
 
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 while(entrada != false){
 
     let menu = verificarNumeros(ingresarPregunta("------------Menu------------\n1. Sacar promedio del alumno \n2. Elegir alumno para pasar al frente \n3. Salir"), 0, 3);
