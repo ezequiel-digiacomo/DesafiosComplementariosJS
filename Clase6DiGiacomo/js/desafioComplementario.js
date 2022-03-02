@@ -1,5 +1,30 @@
-let entrada = true;
 let arrayAlumnos = [];
+
+let entrada = true;
+
+function listarAlumnos(){
+    
+    let alumno = null;
+
+    while (entrada) {
+
+      alumno = prompt("Ingresar nombre y apellido del alumno:");
+
+      if (alumno != null) {
+        arrayAlumnos.push(alumno);
+      }else {
+        alert("Error!");
+      }
+
+      let seguir = confirm("Desea agregar otro alumno?"); 
+
+      if (!seguir) {
+        entrada = false;
+        alert("La lista de alumnos es la siguiente:\n- " + arrayAlumnos.join("\n- ")); 
+      }
+    }     
+
+}
 
 function verificarNumeros(respuesta, min, max){
     
@@ -26,34 +51,9 @@ function sumadorNotas(cantidad) {
     return acumulador;
 }
 
-function ListaDeCompras(){
-    let entrada = true;
-    let alumno = null;
-
-    while (entrada) {
-
-      alumno = prompt("Ingresar nombre y apellido del alumno:");
-
-      if (alumno != null) {
-        arrayAlumnos.push(alumno);
-      }else {
-        alert("Error!");
-      }
-
-      let seguir = confirm("Desea agregar otro alumno?"); 
-
-      if (!seguir) {
-        entrada = false;
-        alert("La lista de alumnos:\n- " + arrayAlumnos.join("\n- ")); 
-      }
-    }     
-
-}
-
-
 while(entrada != false){
 
-    let menu = verificarNumeros(ingresarPregunta("------------Menu------------\n1. Sacar promedio del alumno \n2. Elegir alumno para pasar al frente \n3. Salir"), 0, 3);
+    let menu = verificarNumeros(ingresarPregunta("------------Menu------------\n1. Sacar promedio del alumno \n2. Elegir alumno para pasar al frente \n3. Cargar lista de alumnos \n4. Salir"), 0, 4);
 
     switch (menu) {
         case 1:
@@ -69,8 +69,9 @@ while(entrada != false){
             break;
         
         case 3:
+            listarAlumnos();
+            break;
 
-        
         case 4:
             entrada=false;
             break;
@@ -78,5 +79,3 @@ while(entrada != false){
     }
 
 }
-
-
